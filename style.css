@@ -1,17 +1,22 @@
-/* Root variables for dark/light mode */
 :root {
-    --background-color: #1A1A1A;
-    --text-color:  #FFFFFF;
+    color-scheme: light dark; /* Enables system-level dark mode detection */
+}
+
+/* Light mode */
+:root {
+    --background-color: #FFFFFF;
+    --text-color: #1A1A1A;
     --accent-color: #d32c0b90;
 }
 
-/* @media (prefers-color-scheme:dark) {
+/* Dark mode - activates automatically based on system preference */
+@media (prefers-color-scheme: dark) {
     :root {
-    --background-color: #000000;
-    --text-color: #ffffff;
-    --accent-color: #f39c12;
+        --background-color: #1A1A1A;
+        --text-color: #FFFFFF;
+        --accent-color: #d32c0b90;
     }
-} */
+}
 
 body {
     margin: 0;
@@ -98,100 +103,83 @@ main p {
     background: var(--background-color);
 }
 
-.watch div {
+/* Improved hand positioning and animation */
+.hour-hand, .minute-hand, .second-hand {
     position: absolute;
-    width: 2px;
-    background: var(--text-color);
-    top: 50%;
+    bottom: 50%;
     left: 50%;
-    transform-origin: bottom;
-    transform: translate(-50%, -100%) rotate(0deg);
+    transform-origin: 50% 100%;
+    border-radius: 4px;
 }
 
-.numerals {
-    position: absolute;
-    /* width: 100%; */
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
+.hour-hand {
+    width: 4px;
+    height: 60px;
+    background: var(--text-color);
+    animation: rotate 43200s linear infinite; /* 12 hours */
 }
 
+.minute-hand {
+    width: 3px;
+    height: 80px;
+    background: var(--text-color);
+    animation: rotate 3600s linear infinite; /* 60 minutes */
+}
+
+.second-hand {
+    width: 2px;
+    height: 90px;
+    background: #ff0000;
+    animation: rotate 60s steps(60) infinite; /* 60 seconds with stepping */
+}
+
+/* Improved numeral positioning */
 .numerals span {
     position: absolute;
     font-size: 1.2rem;
     color: var(--text-color);
+}
+
+.twelve { top: 10px; left: 50%; transform: translateX(-50%); }
+.three { right: 10px; top: 50%; transform: translateY(-50%); }
+.six { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.nine { left: 10px; top: 50%; transform: translateY(-50%); }
+
+/* Improved rotation animation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Add clock markers */
+.watch::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--text-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-.twelve {
-    top: 10%;
-    left: 50%;
-}
-
-.three {
-    top: 100%;
-    right: -100px;
-    transform: translate(50%, -50%) rotate(90deg);
-}
-
-.six {
-    bottom: -100%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(180deg);
-}
-
-.nine {
-    top: 100%;
-    left: -85px;
-    transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-.hour-hand {
-    height: 50px;
-    animation: rotateHour 43200s linear infinite;
-}
-
-.minute-hand {
-    height: 70px;
-    animation: rotateMinute 3600s linear infinite;
-}
-
-.second-hand {
-    height: 90px;
-    background-color: red;
-    animation: rotateSecond 60s linear infinite;
-}
-
-@keyframes rotateHour {
-    from {
-        transform: translate(-50%, -100%) rotate(0deg);
-    }
-
-    to {
-        transform: translate(-50%, -100%) rotate(360deg);
-    }
-}
-
-@keyframes rotateMinute {
-    from {
-        transform: translate(-50%, -100%) rotate(0deg);
-    }
-
-    to {
-        transform: translate(-50%, -100%) rotate(360deg);
-    }
-}
-
-@keyframes rotateSecond {
-    from {
-        transform: translate(-50%, -100%) rotate(0deg);
-    }
-
-    to {
-        transform: translate(-50%, -100%) rotate(360deg);
-    }
+/* Add minute markers */
+.watch::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg 6deg,
+        var(--text-color) 6deg 7deg
+    );
+    border-radius: 50%;
+    opacity: 0.2;
 }
 
 
@@ -248,4 +236,35 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+
+/* Add these responsive design improvements */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .watch {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Improve parallax for mobile */
+@media screen and (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
 }
