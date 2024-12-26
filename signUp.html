@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .signup {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .signup form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .signup input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .signup button {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: rgb(201, 4, 4);
+            border: 1px solid;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="signUp" class="signup">
+        <h2>Sign Up</h2>
+        <form action="#" method="POST">
+            <label for="username">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+            <label for="username">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+            <label for="username">Other Names:</label>
+            <input type="text" id="othername" name="othername" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* Root variables for dark/light mode */
+:root {
+    --background-color: #1A1A1A;
+    --text-color:  #FFFFFF;
+    --accent-color: #d32c0b90;
+}
+
+/* @media (prefers-color-scheme:dark) {
+    :root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #f39c12;
+    }
+} */
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--accent-color);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo a {
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: default;
+}
+
+.logo a:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Header Section */
+main {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    height: 100vh;
+}
+
+main h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main p {
+    font-size: 1.2rem;
+}
+
+/* Animated Watch Hands */
+.watch {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    background: var(--background-color);
+}
+
+.watch div {
+    position: absolute;
+    width: 2px;
+    background: var(--text-color);
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.numerals {
+    position: absolute;
+    /* width: 100%; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.numerals span {
+    position: absolute;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transform: translate(-50%, -50%);
+}
+
+.twelve {
+    top: 10%;
+    left: 50%;
+}
+
+.three {
+    top: 100%;
+    right: -100px;
+    transform: translate(50%, -50%) rotate(90deg);
+}
+
+.six {
+    bottom: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.nine {
+    top: 100%;
+    left: -85px;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.hour-hand {
+    height: 50px;
+    animation: rotateHour 43200s linear infinite;
+}
+
+.minute-hand {
+    height: 70px;
+    animation: rotateMinute 3600s linear infinite;
+}
+
+.second-hand {
+    height: 90px;
+    background-color: red;
+    animation: rotateSecond 60s linear infinite;
+}
+
+@keyframes rotateHour {
+    from {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+@keyframes rotateMinute {
+    from {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+@keyframes rotateSecond {
+    from {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+
+/* About Us Section */
+.about-us {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+/* Parallax Section */
+.parallax {
+    height: 100vh;
+    background-image: url('images/complied watches.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Gallery Section */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
