@@ -5,7 +5,7 @@
 /* Light mode */
 :root {
     --background-color: #FFFFFF;
-    --text-color: #1A1A1A;
+    --text-color: #060000;
     --accent-color: #d32c0b90;
 }
 
@@ -114,21 +114,21 @@ main p {
 
 .hour-hand {
     width: 4px;
-    height: 60px;
+    height: 40px;
     background: var(--text-color);
     animation: rotate 43200s linear infinite; /* 12 hours */
 }
 
 .minute-hand {
     width: 3px;
-    height: 80px;
+    height: 60px;
     background: var(--text-color);
     animation: rotate 3600s linear infinite; /* 60 minutes */
 }
 
 .second-hand {
     width: 2px;
-    height: 90px;
+    height: 70px;
     background: #ff0000;
     animation: rotate 60s steps(60) infinite; /* 60 seconds with stepping */
 }
@@ -186,7 +186,7 @@ main p {
 /* About Us Section */
 .about-us {
     padding: 50px 20px;
-    background-color: #f9f9f9;
+    background-color: #0b3e27;
     text-align: center;
 }
 
@@ -201,13 +201,13 @@ main p {
 }
 
 /* Parallax Section */
-.parallax {
+/* .parallax {
     height: 100vh;
     background-image: url('images/complied watches.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-}
+} */
 
 /* Gallery Section */
 .gallery {
