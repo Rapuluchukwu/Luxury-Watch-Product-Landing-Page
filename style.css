@@ -225,6 +225,10 @@ main p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.contacts ul {
+    display: inline-block;
+    background-color: #0b3e27;
+}
 
 /* Footer */
 footer {
